@@ -1,6 +1,7 @@
 import requests
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import Message,KeyboardButton,ReplyKeyboardMarkup
+import asyncio
 
 api_id = 34893727
 api_hash = "ae9e0f5e7ed5b22048e829234b98f503"
@@ -86,4 +87,12 @@ def format_bitcoin_summary(data):
 🔥 Stay sharp. Volatility is opportunity!
 """
     return message
-app.run()
+
+async def main():
+    await app.start()
+    print("Bot is running")
+    await idle()
+
+if __name__ == "__main__":
+    asyncio.get_event_loop().run_until_complete(main())
+    
